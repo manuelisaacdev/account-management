@@ -35,13 +35,12 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public boolean delete(String filename) {
+    public void delete(String filename) {
+        if (Objects.isNull(filename)) return;
         try {
             Files.deleteIfExists(this.storageProperties.getRootLocation().resolve(filename));
-            return true;
         } catch (IOException e) {
             log.error("Could not delete file: {}", filename, e);
-            return false;
         }
     }
 
