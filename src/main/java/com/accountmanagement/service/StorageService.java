@@ -6,6 +6,6 @@ import java.nio.file.Path;
 
 public interface StorageService {
     void init();
-    boolean delete(String filename);
+    void delete(String filename);
     Path store(MultipartFile multipartFile);
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -70,13 +71,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody @Valid UserDTO userDTO){
-        return ResponseEntity.ok(userService.create(userDTO));
+    public ResponseEntity<User> create(@RequestBody @Valid UserDTO userDTO, @RequestHeader Optional<String> authorization){
+        return ResponseEntity.ok(userService.create(userDTO, authorization));
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity<User> update(@PathVariable Long userId, @RequestBody @Valid UpdateUserDTO updateUserDTO){
-        return ResponseEntity.ok(userService.update(userId, updateUserDTO));
+    public ResponseEntity<User> update(@PathVariable Long userId, @RequestBody @Valid UpdateUserDTO updateUserDTO, @RequestHeader String authorization){
+        return ResponseEntity.ok(userService.update(userId, updateUserDTO, authorization));
     }
 
     @PatchMapping("/password/{userId}")
@@ -90,8 +91,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> delete(@PathVariable Long userId){
-        userService.delete(userId);
+    public ResponseEntity<Void> delete(@PathVariable Long userId, @RequestHeader String authorization){
+        userService.delete(userId, authorization);
         return ResponseEntity.noContent().build();
     }
 

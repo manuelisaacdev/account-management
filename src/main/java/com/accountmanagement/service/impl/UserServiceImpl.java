@@ -1,12 +1,16 @@
 package com.accountmanagement.service.impl;
 
+import com.accountmanagement.dto.JWTPayload;
 import com.accountmanagement.dto.UpdateUserDTO;
 import com.accountmanagement.dto.UpdateUserPasswordDTO;
 import com.accountmanagement.dto.UserDTO;
 import com.accountmanagement.exception.DataNotFoundException;
 import com.accountmanagement.exception.PasswordNotMatchException;
+import com.accountmanagement.exception.UnauthorizedException;
+import com.accountmanagement.model.Role;
 import com.accountmanagement.model.User;
 import com.accountmanagement.repository.UserRepository;
+import com.accountmanagement.service.JwtService;
 import com.accountmanagement.service.StorageService;
 import com.accountmanagement.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,15 +19,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserRepository> implements UserService {
+    private final JwtService jwtService;
     private final HttpServletRequest request;
     private final MessageSource messageSource;
     private final StorageService storageService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository repository, HttpServletRequest request, MessageSource messageSource, StorageService storageService, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository repository, JwtService jwtService, HttpServletRequest request, MessageSource messageSource, StorageService storageService, PasswordEncoder passwordEncoder) {
         super(repository);
+        this.jwtService = jwtService;
         this.request = request;
         this.messageSource = messageSource;
         this.storageService = storageService;
@@ -37,7 +45,23 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
     }
 
     @Override
-    public User create(UserDTO userDTO) {
+    public User create(UserDTO userDTO, Optional<String> authorization) {
+        if (userDTO.role().equals(Role.CLIENT) || authorization.isEmpty()) {
+            if (!userDTO.role().equals(Role.CLIENT)) {
+                throw new UnauthorizedException("Authorization required");
+            }
+            return create(userDTO);
+        }
+
+        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization.get());
+        if (userDTO.role().equals(Role.ADMIN) && !jwtPayload.role().equals(Role.ROOT)) {
+            throw new UnauthorizedException("Authorization required");
+        }
+
+        return create(userDTO);
+    }
+
+    private User create(UserDTO userDTO) {
         return super.save(User.builder()
         .name(userDTO.name())
         .phone(userDTO.phone())
@@ -48,8 +72,30 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
     }
 
     @Override
-    public User update(Long userId, UpdateUserDTO updateUserDTO) {
-        return super.save(super.findById(userId).toBuilder()
+    public User update(Long userId, UpdateUserDTO updateUserDTO, String authorization) {
+        User user = findById(userId);
+
+        if (user.getRole().equals(Role.CLIENT)) {
+            return update(updateUserDTO, user);
+        }
+
+        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
+
+        if (user.getRole().equals(Role.ROOT) && !user.getId().equals(jwtPayload.id())) {
+            throw new UnauthorizedException("Authorization required");
+        }
+
+        if (user.getRole().equals(Role.ADMIN) &&
+            !user.getId().equals(jwtPayload.id()) &&
+            !jwtPayload.role().equals(Role.ADMIN)) {
+            throw new UnauthorizedException("Authorization required");
+        }
+
+        return update(updateUserDTO, user);
+    }
+
+    private User update(UpdateUserDTO updateUserDTO, User user) {
+        return super.save(user.toBuilder()
         .name(updateUserDTO.name())
         .phone(updateUserDTO.phone())
         .email(updateUserDTO.email())
@@ -76,5 +122,23 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
         user.setProfilePhoto(storageService.store(multipartFile).toFile().getName());
         storageService.delete(oldProfilePhoto);
         return super.save(user);
+    }
+
+    @Override
+    public void delete(Long userId, String authorization) {
+        User user = super.findById(userId);
+        if (user.getRole().equals(Role.ROOT)) {
+            throw new UnauthorizedException("Authorization required");
+        }
+
+        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
+
+        if ((user.getRole().equals(Role.ADMIN) && !jwtPayload.id().equals(user.getId())) ||
+            (user.getRole().equals(Role.ADMIN) && !jwtPayload.role().equals(Role.ROOT))) {
+            throw new UnauthorizedException("Authorization required");
+        }
+
+        super.getRepository().delete(user);
+        storageService.delete(user.getProfilePhoto());
     }
 }

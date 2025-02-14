@@ -43,9 +43,9 @@ public class JwtServiceImpl implements JwtService {
         }
 
         Jwt jwt = jwtDecoder.decode(authorization.substring(BEARER.length()));
-        Role role = jwt.getClaim("role");
         Long userId = jwt.getClaim("userId");
-        TokenType tokenType = jwt.getClaim("tokenType");
+        Role role = Role.valueOf(jwt.getClaim("role"));
+        TokenType tokenType = TokenType.valueOf(jwt.getClaim("tokenType"));
         return new JWTPayload(userId, role, tokenType);
     }
 }

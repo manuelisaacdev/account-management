@@ -26,7 +26,10 @@ import java.time.LocalDateTime;
 @Table(
     name = "users",
     indexes = @Index(name = "idx_users_email", columnList = "email"),
-    uniqueConstraints = @UniqueConstraint(name = "uk_users_email", columnNames = "email")
+    uniqueConstraints = {
+        @UniqueConstraint(name = "uk_users_email", columnNames = "email"),
+        @UniqueConstraint(name = "uk_users_phone", columnNames = "phone"),
+    }
 )
 public class User {
     @Id
