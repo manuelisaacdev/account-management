@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="12e35743-34f9-4027-a279-1fa6dedd27c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/AccountManagementApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/config/JWTProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/config/StorageProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/JWTPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UpdateUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UpdateUserPasswordDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/AuthenticationFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/AuthorizationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/DataNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/EmptyFileException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/PasswordNotMatchException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/StorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/AuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/UserDetailsImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/AbstractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/StorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/AbstractServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/StorageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ValidationMessage_pt.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/id_rsa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/id_rsa.pub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/json/UserRoot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/message/message.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/accountmanagement/AccountManagementApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ValidationMessage_pt.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/id_rsa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/id_rsa.pub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/json/UserRoot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/message/message.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2t2bkSBrzCpvlREeKdr5sPo4CWf" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JWTProperties.executor": "Run",
+    "Application.User.executor": "Run",
+    "Application.UserController.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.AccountManagementApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/account-management/src/main/java/com/accountmanagement/service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\account-management\src\main\java\com\accountmanagement\service" />
+      <recent name="C:\account-management\src\main\java\com\accountmanagement\controller" />
+      <recent name="C:\account-management\src\main\java\com\accountmanagement\security" />
+      <recent name="C:\account-management\src\main\resources\message" />
+      <recent name="C:\account-management\src\main\java\com\accountmanagement\dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AccountManagementApplication">
+    <configuration name="JWTProperties" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.accountmanagement.config.JWTProperties" />
+      <module name="account-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.accountmanagement.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="User" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.accountmanagement.model.User" />
+      <module name="account-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.accountmanagement.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.accountmanagement.controller.UserController" />
+      <module name="account-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.accountmanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="account-management" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.accountmanagement.AccountManagementApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UserController" />
+        <item itemvalue="Application.JWTProperties" />
+        <item itemvalue="Application.User" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12e35743-34f9-4027-a279-1fa6dedd27c5" name="Changes" comment="" />
+      <created>1739553259905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739553259905</updated>
+      <workItem from="1739553260804" duration="5893000" />
+      <workItem from="1739559404592" duration="52000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

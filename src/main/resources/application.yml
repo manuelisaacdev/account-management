@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: account-management
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/account_management
+    username: root
+    password: ""
+  jpa:
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+        default_schema: PUBLIC
+  messages:
+    encoding: utf-8
+    basename: messages/message
+    always-use-message-format: false
+    fallback-to-system-locale: false
+    use-code-as-default-message: false
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+    web:
+      resources:
+        static-locations: file:storage/images
+    mvc:
+      static-path-pattern: /resources/images/**
+
+jwt:
+  expirationAccessToken: 86400000 # 1DAY
+  expirationRefreshToken: 604800000 # 7DAYS
+
+secret:
+  private:
+    key: classpath:/id_rsa
+  public:
+    key: classpath:/id_rsa.pub
+
+
+storage:
+  rootLocation: file:storage
