@@ -5,68 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12e35743-34f9-4027-a279-1fa6dedd27c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/AccountManagementApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/config/JWTProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/config/StorageProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/JWTPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UpdateUserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UpdateUserPasswordDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/AuthenticationFailureException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/AuthorizationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/DataNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/EmptyFileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/PasswordNotMatchException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/exception/StorageException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/AuthorizationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/UserDetailsImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/security/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/AbstractService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/StorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/AbstractServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/JwtServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/StorageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accountmanagement/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ValidationMessage_pt.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/id_rsa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/id_rsa.pub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/json/UserRoot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/message/message.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/accountmanagement/AccountManagementApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ValidationMessage_pt.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/id_rsa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/id_rsa.pub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/json/UserRoot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/message/message.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +146,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739553259905</updated>
       <workItem from="1739553260804" duration="5893000" />
-      <workItem from="1739559404592" duration="52000" />
+      <workItem from="1739559404592" duration="162000" />
     </task>
     <servers />
   </component>

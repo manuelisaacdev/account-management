@@ -4,7 +4,7 @@
 Account Management é um projeto Backend desenvolvido com Java e Spring Boot para gerenciamento de usuários, incluindo funcionalidades de autenticação e autorização utilizando JWT.
 
 ## Tecnologias Utilizadas 🛠️
-- Java 17+ ☕
+- Java 21+ ☕
 - Spring Boot 🌱
 - Spring Security 🔒
 - JWT (JSON Web Token) 🔑
