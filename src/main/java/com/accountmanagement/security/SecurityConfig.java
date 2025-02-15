@@ -55,6 +55,7 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(authenticationManager -> authenticationManager
         .requestMatchers("/error").permitAll()
+        .requestMatchers(HttpMethod.GET, "/resources/**").permitAll()
         .requestMatchers(HttpMethod.POST, "/login", "/users").permitAll()
         .requestMatchers(HttpMethod.GET, "/auth/refresh-token").hasAuthority("REFRESH_TOKEN")
         .anyRequest().authenticated())

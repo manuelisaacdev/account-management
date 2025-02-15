@@ -27,11 +27,11 @@ spring:
     multipart:
       max-file-size: 512MB
       max-request-size: 512MB
-    web:
-      resources:
-        static-locations: file:storage/images
-    mvc:
-      static-path-pattern: /resources/images/**
+  web:
+    resources:
+      static-locations: file:storage
+  mvc:
+    static-path-pattern: /resources/**
 
 jwt:
   expirationAccessToken: 86400000 # 1DAY

@@ -132,8 +132,7 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
 
         JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
 
-        if ((user.getRole().equals(Role.ADMIN) && !jwtPayload.id().equals(user.getId())) ||
-            (user.getRole().equals(Role.ADMIN) && !jwtPayload.role().equals(Role.ROOT))) {
+        if (user.getRole().equals(Role.ADMIN) && !(jwtPayload.id().equals(user.getId()) || jwtPayload.role().equals(Role.ROOT))) {
             throw new UnauthorizedException("Authorization required");
         }
 
