@@ -21,7 +21,7 @@ public abstract class AbstractServiceImpl<T, ID, R extends JpaRepository<T, ID>>
     @Override
     public T findById(ID id) throws DataNotFoundException {
         return repository.findById(id)
-        .orElseThrow(() -> new DataNotFoundException("Entity not found"));
+        .orElseThrow(() -> new DataNotFoundException("Entity not found: " + id));
     }
 
     @Override

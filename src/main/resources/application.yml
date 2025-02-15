@@ -25,8 +25,8 @@ spring:
     use-code-as-default-message: false
   servlet:
     multipart:
-      max-file-size: 512MB
-      max-request-size: 512MB
+      max-file-size: 1MB
+      max-request-size: 1MB
   web:
     resources:
       static-locations: file:storage

@@ -12,8 +12,4 @@ import org.springframework.context.annotation.Configuration;
 public class JWTProperties {
     private Long expirationAccessToken;
     private Long expirationRefreshToken;
-
-    public static void main(String[] args) {
-        System.out.println("fffffffff");
-    }
 }

@@ -52,8 +52,6 @@ public class StorageServiceImpl implements StorageService {
 
         Path destination = buildDestinationFile(multipartFile);
 
-        System.out.println("============================> destination: " + destination);
-
         try (InputStream inputStream = multipartFile.getInputStream()) {
             Files.copy(inputStream, destination);
             return destination;

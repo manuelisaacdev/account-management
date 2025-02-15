@@ -1,12 +1,11 @@
 package com.accountmanagement.service.impl;
 
-import com.accountmanagement.dto.JWTPayload;
 import com.accountmanagement.dto.UpdateUserDTO;
 import com.accountmanagement.dto.UpdateUserPasswordDTO;
 import com.accountmanagement.dto.UserDTO;
+import com.accountmanagement.exception.AuthorizationException;
 import com.accountmanagement.exception.DataNotFoundException;
 import com.accountmanagement.exception.PasswordNotMatchException;
-import com.accountmanagement.exception.UnauthorizedException;
 import com.accountmanagement.model.Role;
 import com.accountmanagement.model.User;
 import com.accountmanagement.repository.UserRepository;
@@ -48,14 +47,14 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
     public User create(UserDTO userDTO, Optional<String> authorization) {
         if (userDTO.role().equals(Role.CLIENT) || authorization.isEmpty()) {
             if (!userDTO.role().equals(Role.CLIENT)) {
-                throw new UnauthorizedException("Authorization required");
+                throw new AuthorizationException("Authorization required");
             }
             return create(userDTO);
         }
 
-        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization.get());
+        JwtService.JWTPayload jwtPayload = jwtService.getJWTPayload(authorization.get());
         if (userDTO.role().equals(Role.ADMIN) && !jwtPayload.role().equals(Role.ROOT)) {
-            throw new UnauthorizedException("Authorization required");
+            throw new AuthorizationException("Authorization required");
         }
 
         return create(userDTO);
@@ -79,15 +78,15 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
             return update(updateUserDTO, user);
         }
 
-        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
+        JwtService.JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
 
-        if (user.getRole().equals(Role.ROOT) && !user.getId().equals(jwtPayload.id())) {
-            throw new UnauthorizedException("Authorization required");
+        if (user.getRole().equals(Role.ROOT) && !user.getId().equals(jwtPayload.userId())) {
+            throw new AuthorizationException("Authorization required");
         }
 
         if (user.getRole().equals(Role.ADMIN) &&
-            !(user.getId().equals(jwtPayload.id()) || jwtPayload.role().equals(Role.ROOT))) {
-            throw new UnauthorizedException("Authorization required");
+            !(user.getId().equals(jwtPayload.userId()) || jwtPayload.role().equals(Role.ROOT))) {
+            throw new AuthorizationException("Authorization required");
         }
 
         return update(updateUserDTO, user);
@@ -127,13 +126,13 @@ public class UserServiceImpl extends AbstractServiceImpl<User, Long, UserReposit
     public void delete(Long userId, String authorization) {
         User user = super.findById(userId);
         if (user.getRole().equals(Role.ROOT)) {
-            throw new UnauthorizedException("Authorization required");
+            throw new AuthorizationException("Authorization required");
         }
 
-        JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
+        JwtService.JWTPayload jwtPayload = jwtService.getJWTPayload(authorization);
 
-        if (user.getRole().equals(Role.ADMIN) && !(jwtPayload.id().equals(user.getId()) || jwtPayload.role().equals(Role.ROOT))) {
-            throw new UnauthorizedException("Authorization required");
+        if (user.getRole().equals(Role.ADMIN) && !(jwtPayload.userId().equals(user.getId()) || jwtPayload.role().equals(Role.ROOT))) {
+            throw new AuthorizationException("Authorization required");
         }
 
         super.getRepository().delete(user);

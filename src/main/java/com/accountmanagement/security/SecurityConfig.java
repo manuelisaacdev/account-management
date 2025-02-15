@@ -1,5 +1,6 @@
 package com.accountmanagement.security;
 
+import com.accountmanagement.service.JwtService;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
@@ -51,13 +52,13 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationFilter authenticationFilter, AuthorizationFilter authorizationFilter) throws Exception {
-        http.cors(AbstractHttpConfigurer::disable)
+        http.cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource()))
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(authenticationManager -> authenticationManager
         .requestMatchers("/error").permitAll()
         .requestMatchers(HttpMethod.GET, "/resources/**").permitAll()
         .requestMatchers(HttpMethod.POST, "/login", "/users").permitAll()
-        .requestMatchers(HttpMethod.GET, "/auth/refresh-token").hasAuthority("REFRESH_TOKEN")
+        .requestMatchers(HttpMethod.GET, "/auth/refresh-token").hasAuthority(JwtService.TokenType.REFRESH_TOKEN.getAuthority())
         .anyRequest().authenticated())
         .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
         .addFilter(authenticationFilter)
@@ -72,7 +73,6 @@ public class SecurityConfig {
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowedOrigins(List.of("*"));
         configuration.setAllowedOriginPatterns(List.of("*"));
-        configuration.setAllowedOrigins(List.of("*"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "PATCH", "DELETE"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
