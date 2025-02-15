@@ -52,6 +52,8 @@ public class StorageServiceImpl implements StorageService {
 
         Path destination = buildDestinationFile(multipartFile);
 
+        System.out.println("============================> destination: " + destination);
+
         try (InputStream inputStream = multipartFile.getInputStream()) {
             Files.copy(inputStream, destination);
             return destination;
@@ -61,10 +63,10 @@ public class StorageServiceImpl implements StorageService {
     }
 
     private Path buildDestinationFile(MultipartFile file) {
-        return storageProperties.getRootLocation().resolve(this.storageProperties.getRootLocation().resolve(String.format(
+        return storageProperties.getRootLocation().resolve(String.format(
         "%s.%s",
         RandomStringUtils.secure().nextAlphanumeric(64),
         Objects.requireNonNull(FilenameUtils.getExtension(file.getOriginalFilename()))
-        ))).normalize().toAbsolutePath();
+        )).normalize().toAbsolutePath();
     }
 }
